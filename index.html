@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Assessment Design Guide - Ivey EdTech Lab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AI-Powered Assessment Design Guide</h1>
+            <p class="subtitle">Ivey Business School EdTech Lab</p>
+        </div>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#assessment-type">Assessment Type</a></li>
+                <li><a href="#udl-compliance">UDL Compliance</a></li>
+                <li><a href="#quality-matters">Quality Matters</a></li>
+                <li><a href="#inclusive-design">Inclusive Design</a></li>
+                <li><a href="#ai-prompts">AI Prompts</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="welcome" class="hero-section">
+            <div class="container">
+                <h2>Welcome to Your Assessment Design Journey</h2>
+                <p>This interactive guide will walk you through best practices for creating AI-enhanced assessments that are accessible, inclusive, and pedagogically sound.</p>
+                <button class="btn-primary" onclick="startJourney()">Start Your Journey</button>
+            </div>
+        </section>
+
+        <section id="assessment-type" class="step-section">
+            <div class="container">
+                <h2>Step 1: Choose Your Assessment Type</h2>
+                <p>Select the type of assessment you want to create:</p>
+
+                <div class="card-grid">
+                    <div class="card" onclick="selectAssessmentType('formative')">
+                        <h3>Formative Assessment</h3>
+                        <p>Low-stakes activities for learning feedback</p>
+                        <ul>
+                            <li>Quick quizzes</li>
+                            <li>Discussion prompts</li>
+                            <li>Exit tickets</li>
+                            <li>Self-assessments</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" onclick="selectAssessmentType('summative')">
+                        <h3>Summative Assessment</h3>
+                        <p>High-stakes evaluations of learning</p>
+                        <ul>
+                            <li>Final exams</li>
+                            <li>Major projects</li>
+                            <li>Research papers</li>
+                            <li>Presentations</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" onclick="selectAssessmentType('authentic')">
+                        <h3>Authentic Assessment</h3>
+                        <p>Real-world application tasks</p>
+                        <ul>
+                            <li>Case studies</li>
+                            <li>Simulations</li>
+                            <li>Portfolio work</li>
+                            <li>Industry projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" onclick="selectAssessmentType('peer')">
+                        <h3>Peer Assessment</h3>
+                        <p>Collaborative evaluation activities</p>
+                        <ul>
+                            <li>Peer reviews</li>
+                            <li>Group evaluations</li>
+                            <li>360-degree feedback</li>
+                            <li>Team assessments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="assessment-details" class="detail-panel" style="display: none;">
+                    <h3>Selected: <span id="selected-type"></span></h3>
+                    <div id="type-recommendations"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="udl-compliance" class="step-section">
+            <div class="container">
+                <h2>Step 2: Universal Design for Learning (UDL) Compliance</h2>
+                <p>Ensure your assessment follows UDL principles for maximum accessibility:</p>
+
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h3>Multiple Means of Representation</h3>
+                        <div class="checklist">
+                            <label>
+                                <input type="checkbox" id="udl-visual">
+                                <span>Visual representations (charts, diagrams)</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-audio">
+                                <span>Audio options (narration, podcasts)</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-text">
+                                <span>Text alternatives for all media</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-translation">
+                                <span>Language translation options</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Multiple Means of Engagement</h3>
+                        <div class="checklist">
+                            <label>
+                                <input type="checkbox" id="udl-choice">
+                                <span>Student choice in topics/formats</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-relevance">
+                                <span>Real-world relevance</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-feedback">
+                                <span>Timely, specific feedback</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-collaboration">
+                                <span>Collaboration opportunities</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="principle-card">
+                        <h3>Multiple Means of Action & Expression</h3>
+                        <div class="checklist">
+                            <label>
+                                <input type="checkbox" id="udl-formats">
+                                <span>Various response formats</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-tools">
+                                <span>Assistive technology compatible</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-scaffolding">
+                                <span>Scaffolding and support</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="udl-timing">
+                                <span>Flexible timing options</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="generateUDLReport()">Generate UDL Compliance Report</button>
+                <div id="udl-report" class="report-section" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="quality-matters" class="step-section">
+            <div class="container">
+                <h2>Step 3: Quality Matters Alignment</h2>
+                <p>Align your assessment with Quality Matters standards:</p>
+
+                <div class="qm-standards">
+                    <div class="standard-item">
+                        <h3>Learning Objectives</h3>
+                        <textarea id="qm-objectives" placeholder="Enter your measurable learning objectives using action verbs (e.g., analyze, evaluate, create)..." rows="4"></textarea>
+                    </div>
+
+                    <div class="standard-item">
+                        <h3>Assessment Alignment</h3>
+                        <p>How does this assessment measure the stated objectives?</p>
+                        <textarea id="qm-alignment" placeholder="Describe how your assessment activities directly measure the learning objectives..." rows="4"></textarea>
+                    </div>
+
+                    <div class="standard-item">
+                        <h3>Grading Criteria</h3>
+                        <div class="rubric-builder">
+                            <label>
+                                <input type="checkbox" id="qm-rubric">
+                                Clear rubric provided
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-criteria">
+                                Specific evaluation criteria
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-examples">
+                                Exemplar samples available
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-points">
+                                Point distribution clear
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="standard-item">
+                        <h3>Learner Support</h3>
+                        <div class="support-options">
+                            <label>
+                                <input type="checkbox" id="qm-instructions">
+                                Clear instructions
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-resources">
+                                Support resources linked
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-help">
+                                Help system available
+                            </label>
+                            <label>
+                                <input type="checkbox" id="qm-faq">
+                                FAQ provided
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="checkQMAlignment()">Check QM Alignment</button>
+                <div id="qm-feedback" class="feedback-section" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="inclusive-design" class="step-section">
+            <div class="container">
+                <h2>Step 4: Inclusive Design Checklist</h2>
+                <p>Ensure your assessment is culturally sensitive and inclusive:</p>
+
+                <div class="inclusive-grid">
+                    <div class="inclusive-category">
+                        <h3>Cultural Sensitivity</h3>
+                        <label>
+                            <input type="checkbox" id="inc-diverse-examples">
+                            Diverse examples and case studies
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-global">
+                            Global perspectives included
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-bias-free">
+                            Bias-free language
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-cultural-context">
+                            Cultural context considered
+                        </label>
+                    </div>
+
+                    <div class="inclusive-category">
+                        <h3>Accessibility Features</h3>
+                        <label>
+                            <input type="checkbox" id="inc-screen-reader">
+                            Screen reader compatible
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-keyboard">
+                            Keyboard navigation
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-captions">
+                            Captions/transcripts provided
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-contrast">
+                            High contrast options
+                        </label>
+                    </div>
+
+                    <div class="inclusive-category">
+                        <h3>Flexible Participation</h3>
+                        <label>
+                            <input type="checkbox" id="inc-async">
+                            Asynchronous options
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-time-zones">
+                            Time zone considerations
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-bandwidth">
+                            Low bandwidth alternatives
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-mobile">
+                            Mobile-friendly design
+                        </label>
+                    </div>
+
+                    <div class="inclusive-category">
+                        <h3>Language Support</h3>
+                        <label>
+                            <input type="checkbox" id="inc-clear-language">
+                            Clear, simple language
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-glossary">
+                            Glossary of terms
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-multilingual">
+                            Multilingual support considered
+                        </label>
+                        <label>
+                            <input type="checkbox" id="inc-idioms">
+                            Idioms explained/avoided
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="generateInclusiveReport()">Generate Inclusivity Report</button>
+                <div id="inclusive-report" class="report-section" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="ai-prompts" class="step-section">
+            <div class="container">
+                <h2>Step 5: Generate AI Assessment Prompts</h2>
+                <p>Create customized prompts for your assessment based on your selections:</p>
+
+                <div class="prompt-generator">
+                    <div class="generator-inputs">
+                        <label for="course-level">Course Level:</label>
+                        <select id="course-level">
+                            <option value="">Select level...</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="graduate">Graduate/MBA</option>
+                            <option value="executive">Executive Education</option>
+                            <option value="professional">Professional Development</option>
+                        </select>
+
+                        <label for="subject-area">Subject Area:</label>
+                        <input type="text" id="subject-area" placeholder="e.g., Financial Analysis, Marketing Strategy, Leadership">
+
+                        <label for="learning-outcome">Primary Learning Outcome:</label>
+                        <textarea id="learning-outcome" placeholder="What should students be able to do after this assessment?" rows="3"></textarea>
+
+                        <label for="context-specifics">Additional Context:</label>
+                        <textarea id="context-specifics" placeholder="Any specific requirements, constraints, or preferences..." rows="3"></textarea>
+                    </div>
+
+                    <button class="btn-primary" onclick="generateAIPrompt()">Generate AI Prompt</button>
+
+                    <div id="generated-prompt" class="prompt-output" style="display: none;">
+                        <h3>Your Customized AI Prompt:</h3>
+                        <div class="prompt-text" id="prompt-text"></div>
+                        <button class="btn-secondary" onclick="copyPrompt()">Copy to Clipboard</button>
+                        <button class="btn-secondary" onclick="refinePrompt()">Refine Prompt</button>
+                    </div>
+
+                    <div id="prompt-variations" class="variations-section" style="display: none;">
+                        <h3>Alternative Prompt Variations:</h3>
+                        <div id="variations-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="step-section">
+            <div class="container">
+                <h2>Resources and Documentation</h2>
+                <p>Access additional resources to support your assessment design:</p>
+
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>Quick References</h3>
+                        <ul>
+                            <li><a href="./Instructional Design Principles/Quick Reference/Prompt-Library.md" target="_blank">Prompt Library</a></li>
+                            <li><a href="./Instructional Design Principles/Quick Reference/Troubleshooting-Checklist.md" target="_blank">Troubleshooting Guide</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>Educational Principles</h3>
+                        <ul>
+                            <li><a href="./Instructional Design Principles/Educational Principles/Universal-Design-for-Learning-Guide.md" target="_blank">UDL Guide</a></li>
+                            <li><a href="./Instructional Design Principles/Educational Principles/Quality-Matters-for-Digital-Tools.md" target="_blank">Quality Matters Standards</a></li>
+                            <li><a href="./Instructional Design Principles/Educational Principles/Inclusive-Teaching-Technology.md" target="_blank">Inclusive Teaching</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>AI Development</h3>
+                        <ul>
+                            <li><a href="./Instructional Design Principles/AI Development Resources/Prompt-Engineering-Guide.md" target="_blank">Prompt Engineering</a></li>
+                            <li><a href="./Instructional Design Principles/Tool Templates/Assessment-Tool-Templates.md" target="_blank">Assessment Templates</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>Research Papers</h3>
+                        <ul>
+                            <li><a href="./Subject Matter Resources/" target="_blank">Academic Research</a></li>
+                            <li><a href="./AI Assessments Outline.pdf" target="_blank">AI Assessments Outline</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="export-section">
+                    <h3>Export Your Assessment Plan</h3>
+                    <p>Download a comprehensive report of your assessment design:</p>
+                    <button class="btn-primary" onclick="exportAssessmentPlan()">Export Assessment Plan (PDF)</button>
+                    <button class="btn-secondary" onclick="exportAssessmentPlan('json')">Export as JSON</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="summary" class="summary-section" style="display: none;">
+            <div class="container">
+                <h2>Your Assessment Design Summary</h2>
+                <div id="summary-content"></div>
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="startOver()">Design Another Assessment</button>
+                    <button class="btn-secondary" onclick="exportAssessmentPlan()">Export Plan</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ivey Business School EdTech Lab. Built with AI-assisted development.</p>
+            <p>Contact: <a href="mailto:jkruck@ivey.ca">jkruck@ivey.ca</a></p>
+        </div>
+    </footer>
+
+    <div id="progress-indicator" class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
