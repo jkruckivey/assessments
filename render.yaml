@@ -7,7 +7,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
-      - key: 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
+      - key: CLAUDE_API_KEY
         sync: false
       - key: SECRET_KEY
         generateValue: true
