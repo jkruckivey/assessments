@@ -182,7 +182,7 @@ Please provide a helpful response based on the knowledge base information and ed
 
             # Call Claude API
             response = self.client.messages.create(
-                model="claude-4-5-sonnet-20241206",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=1500,
                 system=self.create_system_prompt(),
                 messages=[
